@@ -3,4 +3,4 @@ project(Tema2_POO)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Tema2_POO main.cpp Nod.h cmake-build-debug/Nod.cpp Coada.h cmake-build-debug/Coada.cpp)
+add_executable(Tema2_POO main.cpp Deque.cpp Deque.h Nod.cpp Nod.h Coada.cpp Coada.h)

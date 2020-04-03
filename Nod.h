@@ -5,6 +5,7 @@
 #ifndef TEMA2_POO_NOD_H
 #define TEMA2_POO_NOD_H
 
+
 #include <iostream>
 class Nod{
     char* info;
@@ -18,5 +19,6 @@ public:
     friend std::istream& operator >> (std::istream&, Nod&);
     Nod& operator=(const Nod&);
 };
+
 
 #endif //TEMA2_POO_NOD_H
