@@ -4,20 +4,30 @@
 
 #include "Nod.h"
 #include <cstring>
+Nod::Nod()
+{
+    info=new char[256];
+    next=NULL;
+}
 Nod::Nod(char* c)
 {
     info=c;
-    //next=new Node;
+    next=NULL;
 }
-Nod::Nod(char* s,Nod* obj)
+Nod::Nod(char* c,Nod const &obj)
 {
-    //strcpy(info,s);
-    next=obj;
+    info=c;
+    next=obj.next;
 }
 Nod::Nod(Nod const &obj)
 {
     info=obj.info;
     next=obj.next;
+}
+Nod::~Nod()
+{
+    delete info;
+    delete next;
 }
 Nod& Nod:: operator=(const Nod& obj)
 {

@@ -11,10 +11,11 @@ class Nod{
     char* info;
     Nod* next;
 public:
-    Nod(char*);     ///constructor de initializare
-    Nod(char*,Nod*); ///constructor parametrizat
+    Nod();     ///constructor de initializare
+    Nod(char*);
+    Nod(char*,const Nod&); ///constructor parametrizat
     Nod(const Nod&);  ///copiere
-    //~Nod();
+    ~Nod();
     friend std::ostream& operator << (std::ostream&, const Nod&);
     friend std::istream& operator >> (std::istream&, Nod&);
     Nod& operator=(const Nod&);
