@@ -7,6 +7,7 @@
 
 
 #include <iostream>
+class Coada;
 class Nod{
     char* info;
     Nod* next;
@@ -18,6 +19,7 @@ public:
     ~Nod();
     Nod* get_next();
     char* get_info();
+    friend class Coada;
     friend std::ostream& operator << (std::ostream&, const Nod&);
     friend std::istream& operator >> (std::istream&, Nod&);
     Nod& operator=(const Nod&);

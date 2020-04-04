@@ -8,19 +8,29 @@
 Coada::Coada()
 {
     dim_max=0;
-    prim=ultim=NULL;
+    prim=ultim=nullptr;
 }
 Coada::Coada(Nod *obj , int n)
 {
     dim_max=n;
-    prim=obj;
-    ultim=obj;
+    prim=ultim=obj;
 }
 Coada::Coada(const Coada &obj)
 {
     dim_max=obj.dim_max;
-    prim=obj.prim;
-    ultim=obj.ultim;
+    prim=new Nod(*obj.prim);
+    Nod* p;
+    prim->next=p;
+    Nod* p2;
+    p2=obj.prim;
+    while(p2->next!=obj.ultim && p2!=obj.ultim)
+    {
+        p->info=p2->info;
+        p=p->next;
+        p2=p2->next;
+    }
+    p->info=obj.ultim->info;
+    ultim=p;
 }
 Coada::~Coada()
 {
@@ -35,24 +45,19 @@ void Coada::empty() {
     dim_max=0;
     try{
         int i=1;
-        if(prim==NULL)
+        if(prim==nullptr||ultim== nullptr)
             throw i;
-        Nod* newnode=prim ;
+        Nod* newnode;
         while(prim!=ultim)
         {
             newnode=prim;
-            std::cout<<"YEE";
-            //std::cout<<newnode->get_info()<<' ';
-            prim=prim->get_next();
+            prim=prim->next;
             delete newnode;
         }
-        std::cout<<prim->get_next()<<std::endl;
-        //delete prim->get_next();
-        prim->~Nod();
-        std::cout<<prim->get_next()<<std::endl;
+        delete prim;
         delete ultim;
     }catch(int x)
     {
-        std::cout<<"NULL pointer exception";
+        std::cout<<"Queue already empty";
     }
 }

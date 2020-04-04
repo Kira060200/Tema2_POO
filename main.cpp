@@ -21,8 +21,9 @@ int main() {
     Coada e(&c,1);
     Nod f;
     cout<<e.top()->get_info();
+    Coada g(e);
     e.empty();
-    cout<<e.top()->get_info();
-    cout<<e.top()->get_info();
+    cout<<g.top()->get_info();
+    g.empty();
     return 0;
 }

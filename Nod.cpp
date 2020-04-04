@@ -31,13 +31,19 @@ Nod::~Nod()
 {
     delete info;
     delete next;
-    std::cout<<std::endl<<info<<' '<<next<<std::endl;
 }
 Nod& Nod:: operator=(const Nod& obj)
 {
-    info=new char[strlen(obj.info)+1];
-    strcpy(info,obj.info);
-    next=obj.next;
+    try{
+        if(this==&obj)
+            throw 1;
+        info=new char[strlen(obj.info)+1];
+        strcpy(info,obj.info);
+        next=new Nod(*obj.next);
+    }catch(int ex)
+    {
+        return *this;
+    }
     return *this;
 }
 std::ostream& operator <<(std::ostream& output, const Nod& obj){
