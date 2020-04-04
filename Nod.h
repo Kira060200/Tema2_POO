@@ -19,6 +19,8 @@ public:
     ~Nod();
     Nod* get_next();
     char* get_info();
+    void set_next(Nod*);
+    void set_info(char*);
     friend class Coada;
     friend std::ostream& operator << (std::ostream&, const Nod&);
     friend std::istream& operator >> (std::istream&, Nod&);

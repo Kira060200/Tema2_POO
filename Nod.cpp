@@ -61,3 +61,10 @@ char* Nod::get_info() {
 Nod* Nod::get_next(){
     return next;
 }
+void Nod::set_next(Nod* obj) {
+    this->next=obj;
+}
+void Nod::set_info(char *c) {
+    info=new char[strlen(c)+1];
+    strcpy(this->info,c);
+}

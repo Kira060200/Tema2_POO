@@ -18,12 +18,20 @@ int main() {
     Nod dd;
     dd=b;
     cout<<dd;*/
-    Coada e(&c,1);
+    Coada e(&c);
     Nod f;
+    f.set_info("mama");
+    cout<<f<<endl;
     cout<<e.top()->get_info();
     Coada g(e);
     e.empty();
     cout<<g.top()->get_info();
+    g.pop();
     g.empty();
+    cout<<endl;
+    Coada h;
+    cin>>h;
+    cout<<h.top()->get_info();
+    h.empty();
     return 0;
 }
