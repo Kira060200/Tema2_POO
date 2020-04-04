@@ -16,6 +16,8 @@ public:
     Nod(char*,const Nod&); ///constructor parametrizat
     Nod(const Nod&);  ///copiere
     ~Nod();
+    Nod* get_next();
+    char* get_info();
     friend std::ostream& operator << (std::ostream&, const Nod&);
     friend std::istream& operator >> (std::istream&, Nod&);
     Nod& operator=(const Nod&);

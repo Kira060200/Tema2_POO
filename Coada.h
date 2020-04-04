@@ -11,6 +11,18 @@ class Coada{
     Nod* prim;
     Nod* ultim;
     int dim_max;
+public:
+    Coada();                ///constructor de initializare
+    Coada(Nod *, int);  ///constructor param
+    Coada(const Coada&);    ///copiere
+    ~Coada();
+    void insert(const Nod&,int);    ///inserare cu prioritate
+    Nod* top();                      ///return primul element
+    void pop();                     ///eliminarea primului element
+    void empty();                   ///golire coada
+    friend std::ostream& operator << (std::ostream&, const Nod&);
+    friend std::istream& operator >> (std::istream&, Nod&);
+    Coada& operator=(const Coada&);
 };
 
 

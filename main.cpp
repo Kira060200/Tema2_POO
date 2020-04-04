@@ -1,17 +1,28 @@
 #include <iostream>
 #include "Nod.h"
+#include "Coada.h"
 using namespace std;
 int main() {
-    Nod a("Ana are mere");
+    char*car="Apa";
+    Nod a(car);
     cout<<a;
     Nod c("ENDL",a);
     cout<<c;
     Nod b(a);
     cout<<b;
     cout<<endl;
-    Nod d;
+    /*Nod d;
     cin>>d;
     cout<<endl;
-    cout<<d;
+    cout<<d<<endl;
+    Nod dd;
+    dd=b;
+    cout<<dd;*/
+    Coada e(&c,1);
+    Nod f;
+    cout<<e.top()->get_info();
+    e.empty();
+    cout<<e.top()->get_info();
+    cout<<e.top()->get_info();
     return 0;
 }

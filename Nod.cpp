@@ -11,27 +11,32 @@ Nod::Nod()
 }
 Nod::Nod(char* c)
 {
-    info=c;
+    info=new char[strlen(c)+1];
+    strcpy(info,c);
     next=NULL;
 }
 Nod::Nod(char* c,Nod const &obj)
 {
-    info=c;
+    info=new char[strlen(c)+1];
+    strcpy(info,c);
     next=obj.next;
 }
 Nod::Nod(Nod const &obj)
 {
-    info=obj.info;
+    info=new char[strlen(obj.info)+1];
+    strcpy(info,obj.info);
     next=obj.next;
 }
 Nod::~Nod()
 {
     delete info;
     delete next;
+    std::cout<<std::endl<<info<<' '<<next<<std::endl;
 }
 Nod& Nod:: operator=(const Nod& obj)
 {
-    info=obj.info;
+    info=new char[strlen(obj.info)+1];
+    strcpy(info,obj.info);
     next=obj.next;
     return *this;
 }
@@ -43,4 +48,10 @@ std::ostream& operator <<(std::ostream& output, const Nod& obj){
 std::istream& operator >>(std::istream& input, Nod& obj){
     input >> obj.info;
     return input;
+}
+char* Nod::get_info() {
+    return info;
+}
+Nod* Nod::get_next(){
+    return next;
 }
