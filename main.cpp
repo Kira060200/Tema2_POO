@@ -24,14 +24,22 @@ int main() {
     cout<<f<<endl;
     cout<<e.top()->get_info();
     Coada g(e);
-    e.empty();
+    ///e.empty();
     cout<<g.top()->get_info();
-    g.pop();
-    g.empty();
+    ///g.pop();
+    ///g.empty();
     cout<<endl;
     Coada h;
     cin>>h;
+    cin>>h;
     cout<<h.top()->get_info();
+    cout<<h;
     h.empty();
+    h.insert("Ana");
+    h.insert("are");
+    h.insert("mere");
+    cout<<h;
+    h.empty();
+    cout<<h.top()->get_info();
     return 0;
 }

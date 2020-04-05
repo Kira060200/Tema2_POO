@@ -38,26 +38,48 @@ Coada::Coada(const Coada &obj)
 }
 Coada::~Coada()
 {
-    if(dim_max>0) {
-        delete prim;
-        if (dim_max > 1)
-            delete ultim;
-        dim_max = 0;
+    int old=dim_max;
+    dim_max=0;
+    try {
+        if(old==0)
+            throw 1;
+        while (old) {
+            Nod *newnode;
+            newnode = prim;
+            if (old != 1)
+                prim = prim->next;
+            free(newnode);
+            old--;
+        }
+    }catch(int ex){}
+}
+void Coada::insert(char* c) {
+    dim_max++;
+    Nod* p=new Nod();
+    if(dim_max>1) {
+        ultim->next=p;
+        strcpy(p->info,c);
+        ultim=p;
+    }
+    else
+    {
+        strcpy(prim->info,c);
+        ultim=prim;
     }
 }
 Nod* Coada::top(){
     try {
-        if(prim==nullptr)
+        if(dim_max==0)
             throw 1;
         return prim;
     }catch(int ex){
-        return NULL;
+        return nullptr;
     }
 }
 void Coada::pop()
 {
     try{
-        if(prim==nullptr&&ultim==nullptr)
+        if(dim_max==0)
             throw 2;
         if(prim==ultim){
             delete prim;
@@ -80,26 +102,35 @@ void Coada::empty() {
     dim_max=0;
     try{
         int i=1;
-        if(prim==nullptr||ultim== nullptr)
+        if(old==0)
             throw i;
-        Nod* newnode;
-        while(prim!=ultim)
+        while(old)
         {
+            Nod* newnode;
             newnode=prim;
-            prim=prim->next;
-            delete newnode;
+            if(old!=1)
+                prim=prim->next;
+            //std::cout<<prim<<' '<<newnode<<' '<<old<<std::endl;
+            free(newnode);
+            //std::cout<<prim<<' '<<newnode<<' '<<old<<std::endl;
+            old--;
         }
-        delete prim;
-        if(old>1)
-            delete ultim;
-        prim=ultim=nullptr;
+        free(ultim);
+        //prim=ultim=nullptr;
     }catch(int x)
     {
         std::cout<<"Queue already empty";
     }
 }
 std::ostream& operator <<(std::ostream& output, const Coada& obj){
-    //output << obj.info;
+    Nod*p;
+    p=obj.prim;
+    int i=0;
+    while(i<obj.dim_max) {
+        i++;
+        output << p->get_info()<<' ';
+        p=p->get_next();
+    }
     return output;
 }
 

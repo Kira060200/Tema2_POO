@@ -56,10 +56,12 @@ std::istream& operator >>(std::istream& input, Nod& obj){
     return input;
 }
 char* Nod::get_info() {
-    return info;
+    if(this!=nullptr)
+        return info;
 }
 Nod* Nod::get_next(){
-    return next;
+    if(this!=nullptr)
+        return next;
 }
 void Nod::set_next(Nod* obj) {
     this->next=obj;
