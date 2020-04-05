@@ -22,9 +22,9 @@ int main() {
     Nod f;
     f.set_info("mama");
     cout<<f<<endl;
-    cout<<e.top()->get_info();
+    cout<<e.top()->get_info()<<endl;
     Coada g(e);
-    ///e.empty();
+    e.empty();
     cout<<g.top()->get_info();
     ///g.pop();
     ///g.empty();
@@ -32,14 +32,21 @@ int main() {
     Coada h;
     cin>>h;
     cin>>h;
-    cout<<h.top()->get_info();
-    cout<<h;
-    h.empty();
+    //cout<<h.top()->get_info();
+    //cout<<h;
+    //h.empty();
     h.insert("Ana");
     h.insert("are");
     h.insert("mere");
-    cout<<h;
+    cout<<h<<endl;
+    Coada k(h);
+    //k=h;
+    cout<<k<<endl;
+    h.pop();
+    h.pop();
+    cout<<h<<endl;
     h.empty();
+    cout<<k<<endl;
     cout<<h.top()->get_info();
     return 0;
 }

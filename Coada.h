@@ -14,7 +14,7 @@ class Coada{
 public:
     Coada();                ///constructor de initializare
     Coada(Nod *);  ///constructor param
-    Coada(const Coada&);    ///copiere
+    Coada(Coada&);    ///copiere
     ~Coada();
     void insert(char*);    ///inserare
     Nod* top();                      ///return primul element
