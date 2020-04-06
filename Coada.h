@@ -16,7 +16,7 @@ public:
     Coada(Nod *);  ///constructor param
     Coada(Coada&);    ///copiere
     ~Coada();
-    void insert(char*);    ///inserare
+    virtual void insert(char*);    ///inserare
     Nod* top();                      ///return primul element
     void pop();                     ///eliminarea primului element
     void empty();                   ///golire coada

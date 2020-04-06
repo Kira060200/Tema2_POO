@@ -2,6 +2,7 @@
 #include "Nod.h"
 #include "Coada.h"
 #include "Deque.h"
+#include "Deque_marcaj.h"
 
 using namespace std;
 int main() {
@@ -50,7 +51,7 @@ int main() {
     h.empty();
     cout<<k<<endl;
     //cout<<h.top()->get_info();
-    Deque deq;
+    /*Deque deq;
     Deque deq2;
     cin>>deq;
     //cout<<deq;
@@ -61,7 +62,12 @@ int main() {
     //deq.empty();
     cout<<endl<<deq2<<endl;
     deq.pop_right();
-    cout<<deq;
+    cout<<deq;*/
     //cout<<deq.top()->get_info();
+    Deque_marcaj D;
+    cin>>D;
+    cin>>D;
+    D.insert("corn",1);
+    cout<<D;
     return 0;
 }
