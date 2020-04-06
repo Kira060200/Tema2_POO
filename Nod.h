@@ -7,7 +7,6 @@
 
 
 #include <iostream>
-class Coada;
 class Nod{
     char* info;
     Nod* next;

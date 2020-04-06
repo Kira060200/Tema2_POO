@@ -3,7 +3,6 @@
 //
 
 #include "Coada.h"
-#include "Nod.h"
 #include <cstring>
 Coada::Coada()
 {
@@ -138,4 +137,22 @@ Coada& Coada::operator=(const Coada &obj) {
             p2 = p2->next;
         }
     return *this;
+}
+int Coada::get_dim() {
+    return dim_max;
+}
+Nod* Coada::get_first() {
+    return prim;
+}
+Nod* Coada::get_last(){
+    return ultim;
+}
+int Coada::set_dim(int x){
+    dim_max=x;
+}
+Nod* Coada::set_first(Nod* x){
+    prim=x;
+}
+Nod* Coada::set_last(Nod* x){
+    ultim=x;
 }

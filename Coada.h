@@ -23,6 +23,12 @@ public:
     friend std::ostream& operator << (std::ostream&, const Coada&);
     friend std::istream& operator >> (std::istream&, Coada&);
     Coada& operator=(const Coada&);
+    int get_dim();
+    Nod* get_first();
+    Nod* get_last();
+    int set_dim(int);
+    Nod* set_first(Nod*);
+    Nod* set_last(Nod*);
 };
 
 
